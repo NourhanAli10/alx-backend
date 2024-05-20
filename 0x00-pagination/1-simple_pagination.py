@@ -15,6 +15,7 @@ def index_range(page, page_size):
     end_index = page * page_size
     return (start_index, end_index)
 
+
 class Server:
     """Server class to paginate a database of popular baby names.
     """
@@ -36,8 +37,10 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """Return a page of data from the dataset"""
-        assert isinstance(page, int) and page > 0, "Page number must be a positive integer"
-        assert isinstance(page_size, int) and page_size > 0, "Page size must be a positive integer"
+        assert isinstance(page, int) and page > 0, """Page
+        number must be a positive integer"""
+        assert isinstance(page_size, int) and page_size > 0, """Page
+        size must be a positive integer"""
         start_index, end_index = index_range(page, page_size)
         dataset = self.dataset()
         return dataset[start_index:end_index]
